@@ -31,7 +31,7 @@ public class RecyclerViewBanner extends FrameLayout {
     private ReyclerAdapter adapter;
     private OnRvBannerClickListener onRvBannerClickListener;
     private OnSwitchRvBannerListener onSwitchRvBannerListener;
-    private List<RvBanner> datas = new ArrayList<>();
+    private List datas = new ArrayList<>();
 
     private int size, startX, startY, currentIndex;
     private boolean isPlaying;
@@ -148,7 +148,7 @@ public class RecyclerViewBanner extends FrameLayout {
      *
      * @param datas
      */
-    public void setRvBannerDatas(List<RvBanner> datas) {
+    public void setRvBannerDatas(List datas) {
         setPlaying(false);
         this.datas.clear();
         linearLayout.removeAllViews();
@@ -242,7 +242,7 @@ public class RecyclerViewBanner extends FrameLayout {
                 @Override
                 public void onClick(View v) {
                     if (onRvBannerClickListener != null) {
-                        onRvBannerClickListener.onClick(datas.get(currentIndex % datas.size()));
+                        onRvBannerClickListener.onClick(currentIndex % datas.size());
                     }
                 }
             });
@@ -299,15 +299,12 @@ public class RecyclerViewBanner extends FrameLayout {
     }
 
     public interface OnRvBannerClickListener {
-        void onClick(RvBanner banner);
+        void onClick(int position);
     }
 
     public void setOnRvBannerClickListener(OnRvBannerClickListener onRvBannerClickListener) {
         this.onRvBannerClickListener = onRvBannerClickListener;
     }
 
-    public interface RvBanner {
-        String getUrl();
-    }
 
 }
