@@ -11,6 +11,6 @@
         android:id="@+id/rv_banner"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        loonggg:interval="6000"
+        loonggg:interval="3000"
         loonggg:isShowPoint="true" />
 </RelativeLayout>

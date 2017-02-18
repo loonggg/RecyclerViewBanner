@@ -161,12 +161,12 @@ public class RecyclerViewBanner extends FrameLayout {
             recyclerView.scrollToPosition(currentIndex);
             if (isShowPoint) {
                 for (int i = 0; i < this.datas.size(); i++) {
-                    ImageView img = new ImageView(getContext());
-                    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    lp.leftMargin = size / 2;
-                    lp.rightMargin = size / 2;
-                    img.setImageDrawable(i == 0 ? selectedDrawable : defaultDrawable);
-                    linearLayout.addView(img, lp);
+                        ImageView img = new ImageView(getContext());
+                        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        lp.leftMargin = size / 2;
+                        lp.rightMargin = size / 2;
+                        img.setImageDrawable(i == 0 ? selectedDrawable : defaultDrawable);
+                        linearLayout.addView(img, lp);
                 }
             }
             setPlaying(true);
