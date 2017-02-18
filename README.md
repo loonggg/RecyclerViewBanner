@@ -5,17 +5,17 @@
 Add it in your root build.gradle at the end of repositories:
 ```java
   allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+  }
 ```
 
 ### Step 2. Add the dependency
 ```java
 	dependencies {
-	    compile 'com.github.loonggg:RecyclerViewBanner:v1.0'
+	    compile 'com.github.loonggg:RecyclerViewBanner:v1.1'
 	}
  ```
 
@@ -38,8 +38,8 @@ Add it in your root build.gradle at the end of repositories:
 
 ### Step 4. Impelement Listener
 ```java
-  	recyclerViewBanner = (RecyclerViewBanner) findViewById(R.id.rv_banner);
-        final List<RecyclerViewBanner.RvBanner> banners = new ArrayList<>();
+        recyclerViewBanner = (RecyclerViewBanner) findViewById(R.id.rv_banner);
+        final List<Banner> banners = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             banners.add(new Banner("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487221110004&di=d6043e4b0c90ddf3ea5096c3d8eb8f58&imgtype=0&src=http%3A%2F%2Fimage.tianjimedia.com%2FuploadImages%2F2014%2F067%2F5116EPAUD762_1000x500.jpg"));
             banners.add(new Banner("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1487221129421&di=c085432cf7c15836f8a6479138740f39&imgtype=0&src=http%3A%2F%2Fimage85.360doc.com%2FDownloadImg%2F2015%2F05%2F0517%2F53199602_2.jpg"));
@@ -55,8 +55,8 @@ Add it in your root build.gradle at the end of repositories:
         });
         recyclerViewBanner.setOnRvBannerClickListener(new RecyclerViewBanner.OnRvBannerClickListener() {
             @Override
-            public void onClick(RecyclerViewBanner.RvBanner banner) {
-                Toast.makeText(MainActivity.this, banner.getUrl(), Toast.LENGTH_LONG).show();
+            public void onClick(int position) {
+                //点击事件
             }
         });
 ```
