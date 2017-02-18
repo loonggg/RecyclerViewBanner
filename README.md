@@ -1,5 +1,9 @@
 # RecyclerViewBanner
 使用RecyclerView做的轮播图
+
+### 前言
+之前做的轮播图，对于十几个图片什么的能够满足，但是万一有几千张，几万张就容易造成内存泄露，使用RecyclerView做的轮播，可以利用它自身的复用机制，比较节省内存。所以这种方式感觉效果更好。
+
 ## 效果图
 ![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/sss.gif?raw=true)
 
