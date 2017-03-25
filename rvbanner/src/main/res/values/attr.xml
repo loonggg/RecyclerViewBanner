@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="RecyclerViewBanner">
-        <attr name="pointFocusBg" format="color" />
-        <attr name="pointUnfocusBg" format="color" />
-        <attr name="interval" format="integer" />
-        <attr name="isShowPoint" format="boolean" />
+        <attr name="rvb_interval" format="integer"/>
+        <attr name="rvb_showIndicator" format="boolean"/>
+        <attr name="rvb_indicatorSelectedSrc" format="color|reference"/>
+        <attr name="rvb_indicatorUnselectedSrc" format="color|reference"/>
+        <attr name="rvb_indicatorSize" format="dimension|reference"/>
+        <attr name="rvb_indicatorSpace" format="dimension|reference"/>
+        <attr name="rvb_indicatorMargin" format="dimension|reference"/>
+        <attr name="rvb_indicatorGravity" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
     </declare-styleable>
 </resources>
