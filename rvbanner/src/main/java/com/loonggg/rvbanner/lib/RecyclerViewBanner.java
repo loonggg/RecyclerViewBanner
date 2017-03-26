@@ -244,8 +244,6 @@ public class RecyclerViewBanner extends FrameLayout {
         }
     }
 
-    boolean hasMoved = false;
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         //手动触摸的时候，停止自动播放，根据手势变换
@@ -254,14 +252,13 @@ public class RecyclerViewBanner extends FrameLayout {
                 startX = (int) ev.getX();
                 startY = (int) ev.getY();
                 getParent().requestDisallowInterceptTouchEvent(true);
-                hasMoved = false;
                 break;
             case MotionEvent.ACTION_MOVE:
                 int moveX = (int) ev.getX();
                 int moveY = (int) ev.getY();
                 int disX = moveX - startX;
                 int disY = moveY - startY;
-                hasMoved = 2 * Math.abs(disX) > Math.abs(disY);
+                boolean hasMoved = 2 * Math.abs(disX) > Math.abs(disY);
                 getParent().requestDisallowInterceptTouchEvent(hasMoved);
                 if (hasMoved) {
                     setPlaying(false);
@@ -269,7 +266,7 @@ public class RecyclerViewBanner extends FrameLayout {
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                if (hasMoved) {
+                if (!isPlaying) {
                     isTouched = true;
                     setPlaying(true);
                 }
