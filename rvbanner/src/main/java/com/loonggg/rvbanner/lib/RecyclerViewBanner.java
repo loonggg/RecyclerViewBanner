@@ -120,13 +120,15 @@ public class RecyclerViewBanner extends FrameLayout {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                int first = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-                int last = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
-                if (currentIndex != (first + last) >> 1) {
-                    currentIndex = (first + last) >> 1;
-                    if (isShowIndicator && isTouched) {
-                        isTouched = false;
-                        switchIndicator();
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    int first = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+                    int last = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+                    if (first == last && currentIndex != last) {
+                        currentIndex = last;
+                        if (isShowIndicator && isTouched) {
+                            isTouched = false;
+                            switchIndicator();
+                        }
                     }
                 }
             }
