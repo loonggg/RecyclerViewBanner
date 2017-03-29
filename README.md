@@ -50,7 +50,7 @@ Add it in your root build.gradle at the end of repositories:
  * rvb_indicatorSize 设置指示器的大小
  * rvb_indicatorSpace 设置轮播指示器的间隔
  * rvb_indicatorMargin 设置轮播指示器Indicator距离外边框的间距
- * rvb_indicatorGravity 设置底部轮播导航指示器的位置，[left，center，right]
+ * rvb_indicatorGravity 设置底部轮播导航指示器的位置 [left，center，right]
 
 #### Example
 ```xml
