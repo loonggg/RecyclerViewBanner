@@ -19,6 +19,7 @@
 
 ## 效果图
 ![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/demo1.gif?raw=true)
+
 ![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/sss.gif?raw=true)
 
 ## 使用方法
