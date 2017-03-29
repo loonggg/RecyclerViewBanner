@@ -18,7 +18,7 @@
 		注意：SnapHelper是support-compat:24.2.0才引入的，compile的版本必须高于24.2.0才可以。 
 
 ## 效果图
-![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/sss.gif?raw=true)
+![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/demo1.gif?raw=true)![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/sss.gif?raw=true)
 
 ## 使用方法
 ### Step 1. Add the JitPack repository to your build file
