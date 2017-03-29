@@ -15,7 +15,7 @@
     3. 将BannerView和IndicatorView的ImageView替换为AppCompatImageView，这样在Fragment中也可使用Compat属性，如使用svg矢量图等。
     4. 可通过xml自由配置选中和未选中状态的资源，支持color, shape, png, svg，相当灵活。
     5. lib的build.gradle中改compile为provided，这样当app的build.gradle中的版本低于lib也不会报错。
-   **注意：SnapHelper是support-compat:24.2.0才引入的，compile的版本必须高于24.2.0才可以**
+   **注意：SnapHelper是support-compat:24.2.0才引入的，compile的编译版本必须高于24.2.0才可以**
 
 ## 效果图
 ![](https://github.com/loonggg/RecyclerViewBanner/blob/master/image/demo1.gif?raw=true)
