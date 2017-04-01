@@ -11,7 +11,7 @@
         rvb_indicatorSpace：两个Indicator元素的间距；
         rvb_indicatorMargin：Indicator距离外边框的间距；
         rvb_indicatorGravity：Indicator在广告栏内底部的相对位置。
-		rvb_autoPlaying：是否自动滚动，true自动滚动，false停止自动滚动
+	    rvb_autoPlaying：是否自动滚动，true自动滚动，false停止自动滚动
 
     3. 将BannerView和IndicatorView的ImageView替换为AppCompatImageView，这样在Fragment中也可使用Compat属性，如使用svg矢量图等。
     4. 可通过xml自由配置选中和未选中状态的资源，支持color, shape, png, svg，相当灵活。
