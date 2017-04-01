@@ -16,6 +16,7 @@
         <com.loonggg.rvbanner.lib.RecyclerViewBanner
             android:id="@+id/rv_banner_1"
             android:layout_width="match_parent"
+            loonggg:rvb_autoPlaying="false"
             android:layout_height="140dp"
             tools:background="@color/colorPrimaryDark"/>
         <!--tools:background在编译运行时会被忽略，此处添加可以方便查看Indicator的状态-->

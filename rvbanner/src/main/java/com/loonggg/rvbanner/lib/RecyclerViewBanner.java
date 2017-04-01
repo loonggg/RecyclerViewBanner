@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -47,6 +48,7 @@ public class RecyclerViewBanner extends FrameLayout {
     private boolean isPlaying;
     private Handler handler = new Handler();
     private boolean isTouched;
+    private boolean isAutoPlaying = true;
 
     private Runnable playTask = new Runnable() {
 
@@ -74,6 +76,7 @@ public class RecyclerViewBanner extends FrameLayout {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RecyclerViewBanner);
         mInterval = a.getInt(R.styleable.RecyclerViewBanner_rvb_interval, 3000);
         isShowIndicator = a.getBoolean(R.styleable.RecyclerViewBanner_rvb_showIndicator, true);
+        isAutoPlaying = a.getBoolean(R.styleable.RecyclerViewBanner_rvb_autoPlaying, true);
         Drawable sd = a.getDrawable(R.styleable.RecyclerViewBanner_rvb_indicatorSelectedSrc);
         Drawable usd = a.getDrawable(R.styleable.RecyclerViewBanner_rvb_indicatorUnselectedSrc);
         if (sd == null) {
@@ -184,18 +187,29 @@ public class RecyclerViewBanner extends FrameLayout {
     }
 
     /**
-     * 设置 是否自动播放（上锁）
+     * 设置是否自动播放（上锁）
      *
      * @param playing 开始播放
      */
-    public synchronized void setPlaying(boolean playing) {
-        if (!isPlaying && playing && adapter != null && adapter.getItemCount() > 2) {
-            handler.postDelayed(playTask, mInterval);
-            isPlaying = true;
-        } else if (isPlaying && !playing) {
-            handler.removeCallbacksAndMessages(null);
-            isPlaying = false;
+    private synchronized void setPlaying(boolean playing) {
+        if (isAutoPlaying) {
+            if (!isPlaying && playing && adapter != null && adapter.getItemCount() > 2) {
+                handler.postDelayed(playTask, mInterval);
+                isPlaying = true;
+            } else if (isPlaying && !playing) {
+                handler.removeCallbacksAndMessages(null);
+                isPlaying = false;
+            }
         }
+    }
+
+    /**
+     * 设置是否禁止滚动播放
+     *
+     * @param isAutoPlaying true  是自动滚动播放,false 是禁止自动滚动
+     */
+    public void setRvAutoPlaying(boolean isAutoPlaying) {
+        this.isAutoPlaying = isAutoPlaying;
     }
 
     /**
@@ -291,6 +305,7 @@ public class RecyclerViewBanner extends FrameLayout {
 
     @Override
     protected void onWindowVisibilityChanged(int visibility) {
+        Log.i("test", "onWindowVisibilityChanged");
         if (visibility == GONE || visibility == INVISIBLE) {
             // 停止轮播
             setPlaying(false);
