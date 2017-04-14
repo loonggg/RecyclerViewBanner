@@ -13,7 +13,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -242,6 +241,7 @@ public class RecyclerViewBanner extends FrameLayout {
      * 使用AppCompatImageView的好处是在Fragment中也使用Compat相关属性
      */
     private void createIndicators() {
+        mLinearLayout.removeAllViews();
         for (int i = 0; i < mData.size(); i++) {
             AppCompatImageView img = new AppCompatImageView(getContext());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -305,7 +305,6 @@ public class RecyclerViewBanner extends FrameLayout {
 
     @Override
     protected void onWindowVisibilityChanged(int visibility) {
-        Log.i("test", "onWindowVisibilityChanged");
         if (visibility == GONE || visibility == INVISIBLE) {
             // 停止轮播
             setPlaying(false);
