@@ -120,17 +120,14 @@ public class RecyclerViewBanner extends FrameLayout {
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 
             @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    int first = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-                    int last = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
-                    if (first == last && currentIndex != last) {
-                        currentIndex = last;
-                        if (isShowIndicator && isTouched) {
-                            isTouched = false;
-                            switchIndicator();
-                        }
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int next = ((LinearLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+                if (next != currentIndex) {
+                    currentIndex = next;
+                    if (isShowIndicator && isTouched) {
+                        isTouched = false;
+                        switchIndicator();
                     }
                 }
             }
@@ -286,6 +283,8 @@ public class RecyclerViewBanner extends FrameLayout {
                     isTouched = true;
                     setPlaying(true);
                 }
+                break;
+            default:
                 break;
         }
         return super.dispatchTouchEvent(ev);
