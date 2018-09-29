@@ -220,8 +220,9 @@ public class RecyclerViewBanner extends FrameLayout {
             mData.addAll(data);
         }
         if (mData.size() > 1) {
-            currentIndex = mData.size();
             adapter.notifyDataSetChanged();
+            currentIndex = Integer.MAX_VALUE / 2 - (Integer.MAX_VALUE / 2) % mData.size();
+            // 将起始点设为最靠近的 MAX_VALUE/2 的，且为mData.size()整数倍的位置
             mRecyclerView.scrollToPosition(currentIndex);
             if (isShowIndicator) {
                 createIndicators();
