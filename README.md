@@ -38,7 +38,7 @@ Add it in your root build.gradle at the end of repositories:
 ### Step 2. Add the dependency
 ```java
    dependencies {
-       compile 'com.github.loonggg:RecyclerViewBanner:v1.2.2'
+        implementation 'com.github.loonggg:RecyclerViewBanner:v1.2.3'
    }
  ```
 
